@@ -1,0 +1,50 @@
+# Development directories
+wip/OpenAGI/
+wip/smolagents/
+tool_descriptions/
+tool_examples/
+
+# Include wip subdirectories that should be tracked
+!wip/
+!wip/tool-comparison-2/
+!wip/tools/
+
+# Exclude specific comparison outputs
+wip/tool-comparison-2/comparison/
+
+# Environment and system files
+.env
+.venv/
+.python-version
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+smold/__pycache__/
+smold/tools/__pycache__/
+council-logs/
+consultation/
+debug-logs/
+.claude/
+smold/tools\__pycache__
+smold/tools/tests/__pycache__
+smold/tools/consultation
+CLAUDE.md
+
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+wip/tool-comparison-2/outputs/

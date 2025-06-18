@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smold"
+version = "0.1.0"
+description = "A small code assistant with tool-using capabilities"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "SmolD Team"}
+]
+dependencies = [
+    "smolagents>=1.17.0",
+    "python-dotenv>=1.1.0",
+    "litellm>=1.72.0",
+    "openai>=1.84.0",
+    "google-genai>=1.19.0",
+    "tiktoken>=0.9.0",
+]
+scripts = { smold = "main:main" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.0",
+    "black>=25.1.0",
+    "flake8>=7.2.0",
+    "mypy>=1.16.0",
+]
+
+[tool.setuptools]
+packages = ["smold", "smold.tools"]
+
+[tool.setuptools.package-data]
+"smold" = ["system_message.txt"]

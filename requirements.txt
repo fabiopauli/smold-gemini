@@ -1,0 +1,15 @@
+# SmolD - A lightweight code assistant with tool-using capabilities
+# Runtime dependencies only
+
+# Core SmolD dependencies
+smolagents>=1.17.0
+litellm>=1.72.0
+python-dotenv>=1.1.0
+
+# LLM integration and council functionality
+openai>=1.84.0
+google-genai>=1.19.0
+tiktoken>=0.9.0
+
+# Note: Development dependencies (pytest, black, flake8, mypy) are in requirements-dev.txt
+# Install with: pip install -r requirements-dev.txt
