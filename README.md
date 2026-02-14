@@ -1,4 +1,4 @@
-# SmolD
+# SmolD 🤖
 
 <div align="center">
 
@@ -7,9 +7,9 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests](https://img.shields.io/badge/tests-passing-green.svg)](#testing)
-[![GitHub Issues](https://img.shields.io/badge/feedback-welcome-brightgreen.svg)](https://github.com/fabiopauli/smold-gemini/issues)
+[![GitHub Issues](https://img.shields.io/badge/feedback-welcome-brightgreen.svg)](https://github.com/fipauli/smold/issues)
 
-*Built on HuggingFace's smolagents framework with Google Gemini 2.5 Flash integration*
+*Built on HuggingFace's smolagents framework with DeepSeek Chat integration*
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 📑 Table of Contents
 
-- [SmolD](#smold)
+- [SmolD 🤖](#smold-)
   - [📑 Table of Contents](#-table-of-contents)
   - [🚀 Quick Start](#-quick-start)
   - [🚀 Overview](#-overview)
@@ -36,6 +36,7 @@
   - [🏛️ Project Structure](#️-project-structure)
   - [🔧 Configuration](#-configuration)
     - [Environment Variables](#environment-variables)
+    - [Project Memory (SMOLCC.md)](#project-memory-smoldmd)
   - [🐛 Troubleshooting](#-troubleshooting)
   - [🔗 Related Projects](#-related-projects)
   - [📄 License](#-license)
@@ -58,7 +59,7 @@ Get SmolD running in under 5 minutes:
 
 ```bash
 # 1. Clone and enter directory
-git clone https://github.com/fabiopauli/smold-gemini.git && cd smold-gemini
+git clone https://github.com/fipauli/smold.git && cd smold
 
 # 2. Create virtual environment and activate
 python -m venv venv && source venv/bin/activate  # Unix/Linux/macOS
@@ -68,13 +69,13 @@ python -m venv venv && source venv/bin/activate  # Unix/Linux/macOS
 pip install uv && uv pip install -e .
 
 # 4. Set your API key
-echo "GEMINI_API_KEY=your_key_here" > .env
+echo "DEEPSEEK_API_KEY=your_key_here" > .env
 
 # 5. Start coding assistance!
-python main.py -i
+python main.py "What files are in this project?"
 ```
 
-**Need help?** See our [detailed installation guide](#-installation) or [report issues](https://github.com/fabiopauli/smold-gemini/issues).
+**Need help?** See our [detailed installation guide](#-installation) or [report issues](https://github.com/fipauli/smold/issues).
 
 ---
 
@@ -86,7 +87,7 @@ SmolD is a sophisticated yet lightweight command-line code assistant that combin
 
 - **🧠 Intelligent Code Understanding** - Deep codebase analysis and context-aware responses
 - **💭 Advanced Context Management** - Remembers last 8 interactions with automatic token management under 100k
-- **🏛️ Council of AI Specialists** - Multi-model consultation system (OpenAI o4-mini, Gemini 2.5 Pro, DeepSeek Reasoner)
+- **🏛️ Council of AI Specialists** - Multi-model consultation system (OpenAI gpt-5-mini, Gemini 3 Flash, DeepSeek Reasoner)
 - **🛠️ Comprehensive Tool Suite** - File operations, search, shell commands, and more
 - **🖥️ Cross-Platform Support** - Works seamlessly on Windows (PowerShell) and Unix (Bash)
 - **⚡ Interactive & Batch Modes** - Flexible usage patterns for different workflows
@@ -102,8 +103,8 @@ SmolD leverages a modular architecture built around three core components:
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   CLI Interface │    │   Agent Core     │    │   Tool System   │
-│                 │─ ─▶│                  │───▶│                 │
-│ • Interactive   │    │ • Gemini 2.5Flash│    │ • Platform-     │
+│                 │───▶│                  │───▶│                 │
+│ • Interactive   │    │ • DeepSeek Chat  │    │ • Platform-     │
 │ • Single Query  │    │ • LiteLLM        │    │   specific      │
 │ • Directory     │    │ • Context Mgmt   │    │ • Extensible    │
 │   Context       │    │ • System Prompt  │    │ • Type-safe     │
@@ -142,9 +143,9 @@ python smold/council.py --context "Using React 18" --prompt "Best practices for 
 ```
 
 **Council Members:**
-- **OpenAI o4-mini** - General software engineering expertise and reasoning
-- **Gemini 2.5 Pro** - Advanced reasoning with Google Search capabilities  
-- **DeepSeek Reasoner** - Deep analytical reasoning and complex problem solving
+- **OpenAI gpt-5-mini** - General software engineering expertise
+- **Gemini 3 Flash** - Advanced reasoning with search capabilities
+- **DeepSeek Reasoner** - Deep analytical reasoning and problem solving
 
 The council runs parallel consultations and provides a comprehensive report with insights from all three specialists, helping you make more informed technical decisions.
 
@@ -155,7 +156,7 @@ The council runs parallel consultations and provides a comprehensive report with
 - **Python 3.11 or higher** - Required for modern async support and type hints
   - Tested on Python 3.11, 3.12, and 3.13
   - Older versions (3.10 and below) are not supported
-- **Google Gemini API Key** - Get yours at [Google AI Studio](https://makersuite.google.com/app/apikey)
+- **DeepSeek API Key** - Get yours at [DeepSeek Platform](https://platform.deepseek.com/)
   - 🔒 **Security Note**: Never commit API keys to version control
   - Use `.env` files or environment variables for key management
 - **Git** (optional) - For enhanced git repository features and project cloning
@@ -164,8 +165,8 @@ The council runs parallel consultations and provides a comprehensive report with
 
 1. **Clone and Navigate**
    ```bash
-   git clone https://github.com/fabiopauli/smold-gemini.git
-   cd smold-gemini
+   git clone https://github.com/fipauli/smold.git
+   cd smold
    ```
 
 2. **Environment Setup**
@@ -203,7 +204,7 @@ The council runs parallel consultations and provides a comprehensive report with
 4. **Configure API Access** 🔒
    ```bash
    # Create .env file with required API keys (SECURE METHOD)
-   echo "GEMINI_API_KEY=your_gemini_key_here" > .env
+   echo "DEEPSEEK_API_KEY=your_deepseek_key_here" > .env
    echo "OPENAI_API_KEY=your_openai_key_here" >> .env  # For council.py
    echo "GEMINI_API_KEY=your_gemini_key_here" >> .env  # For council.py
    
@@ -416,9 +417,38 @@ smold/
 
 | Variable | Required | Description | Default |
 |----------|----------|-------------|---------|
-| `GEMINI_API_KEY` | ✅ | Google Gemini API key (main agent) | None |
+| `DEEPSEEK_API_KEY` | ✅ | DeepSeek Chat API key (main agent) | None |
 | `OPENAI_API_KEY` | ⚪ | OpenAI API key (for council.py) | None |
 | `GEMINI_API_KEY` | ⚪ | Google Gemini API key (for council.py) | None |
+
+### Project Memory (SMOLCC.md)
+
+SmolD automatically creates and maintains a `SMOLCC.md` file in your project root to store:
+
+- **Common Commands** - Build, test, lint commands for quick reuse
+- **Style Preferences** - Coding conventions and formatting rules  
+- **Project Context** - Architecture notes and important insights
+- **Custom Tools** - Project-specific automation scripts
+
+Example `SMOLCC.md`:
+```markdown
+# Project: MyApp
+
+## Common Commands
+- Build: `npm run build`
+- Test: `npm test`
+- Lint: `npm run lint`
+
+## Style Guide
+- Use TypeScript strict mode
+- Prefer functional components
+- Follow Airbnb ESLint config
+
+## Architecture Notes
+- Uses React + TypeScript + Vite
+- State management with Zustand
+- API layer in src/services/
+```
 
 ## 🐛 Troubleshooting
 
@@ -428,14 +458,14 @@ smold/
 **API Key Not Found**
 ```bash
 # Verify API key is set
-echo $GEMINI_API_KEY  # Unix/Linux/macOS
-echo %GEMINI_API_KEY% # Windows
+echo $DEEPSEEK_API_KEY  # Unix/Linux/macOS
+echo %DEEPSEEK_API_KEY% # Windows
 
 # Test API connectivity
-python -c "import os; print('Key found' if os.getenv('GEMINI_API_KEY') else 'Key missing')"
+python -c "import os; print('Key found' if os.getenv('DEEPSEEK_API_KEY') else 'Key missing')"
 
 # Check .env file exists and has correct format
-cat .env | grep GEMINI_API_KEY
+cat .env | grep DEEPSEEK_API_KEY
 ```
 
 **API Authentication Errors**
@@ -510,6 +540,19 @@ python main.py -i
 
 # Reduce context if needed (edit system_prompt.py)
 # Consider using shorter directory structures
+```
+
+**Slow Response Times**
+```bash
+# Check internet connectivity to DeepSeek API
+ping api.deepseek.com
+
+# Use debug mode for detailed timing
+python main.py --debug "your query"
+
+# Monitor resource usage
+top -p $(pgrep -f python)  # Unix/Linux
+# Get-Process python | Format-Table  # Windows PowerShell
 ```
 
 **Command Execution Issues**
@@ -608,7 +651,7 @@ sudo yum install python3-devel    # CentOS/RHEL
 5. ✅ Test with a fresh virtual environment
 
 **Report Issues:**
-- 🐛 [GitHub Issues](https://github.com/fabiopauli/smold-gemini/issues) - Bug reports and feature requests
+- 🐛 [GitHub Issues](https://github.com/fipauli/smold/issues) - Bug reports and feature requests
 - 📚 Include your OS, Python version, and error messages
 - 🔍 Use `--debug` output for better diagnostics
 
@@ -625,6 +668,7 @@ python -c "from smold.agent import create_agent; agent = create_agent(); print('
 ## 🔗 Related Projects
 
 - [smolagents](https://github.com/huggingface/smolagents) - The underlying agent framework
+- [DeepSeek Chat](https://platform.deepseek.com/) - The LLM provider
 - [LiteLLM](https://github.com/BerriAI/litellm) - Multi-provider LLM interface
 
 ## 📄 License
@@ -634,7 +678,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **HuggingFace** for the excellent smolagents framework
-- **Google Gemini** for providing powerful and affordable LLM APIs
+- **DeepSeek** for providing powerful and affordable LLM APIs
 - **The Python Community** for the amazing ecosystem of tools and libraries
 
 ## 🐳 Docker Deployment
