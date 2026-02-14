@@ -1,7 +1,7 @@
 """
 Council Tool - Integrate council.py functionality as a smolagents Tool.
 
-This tool provides access to a council of AI specialists (OpenAI o4-mini, Gemini 2.5 Pro, 
+This tool provides access to a council of AI specialists (OpenAI gpt-5-mini, Gemini 3 Flash,
 and DeepSeek Reasoner) for expert technical consultation directly from within SmolD.
 """
 
@@ -78,7 +78,7 @@ class CouncilConsultationTool(Tool):
     Tool for consulting a council of AI specialists for expert technical advice.
     """
     name = "council_consultation"
-    description = """Consult a council of AI specialists (OpenAI o4-mini, Gemini 2.5 Pro, and DeepSeek Reasoner) for expert technical advice and superior recommendations.
+    description = """Consult a council of AI specialists (OpenAI gpt-5-mini, Gemini 3 Flash, and DeepSeek Reasoner) for expert technical advice and superior recommendations.
 
 This tool provides access to three advanced AI models working in parallel to give comprehensive technical guidance, architectural insights, and best practices.
 
@@ -93,8 +93,8 @@ Use this when you need:
 - Code optimization strategies
 
 The council provides superior advice through diverse expertise:
-- OpenAI o4-mini: General software engineering expertise
-- Gemini 2.5 Pro: Advanced reasoning with search capabilities  
+- OpenAI gpt-5-mini: General software engineering expertise
+- Gemini 3 Flash: Advanced reasoning with search capabilities
 - DeepSeek Reasoner: Deep analytical reasoning and problem solving"""
     
     inputs = {
@@ -131,7 +131,7 @@ The council provides superior advice through diverse expertise:
         if user_input_tool is not None:
             confirmation = user_input_tool.forward(
                 "Council Consultation Request: You are about to consult a council of AI specialists "
-                "(OpenAI o4-mini, Gemini 2.5 Pro, and DeepSeek Reasoner) for expert technical advice. "
+                "(OpenAI gpt-5-mini, Gemini 3 Flash, and DeepSeek Reasoner) for expert technical advice. "
                 "This will make API calls to external services and may consume API credits. "
                 "Are you sure you want to proceed with the council consultation? (yes/no)"
             )
